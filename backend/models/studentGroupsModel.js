@@ -21,4 +21,4 @@ const studentGroupsSchema = new Schema({
     }
 }, {timestamps: true})
 
-module.exports = mongoose.model("StudentGroup", studentGroupsSchema)
+module.exports = mongoose.model("studentgroup", studentGroupsSchema)

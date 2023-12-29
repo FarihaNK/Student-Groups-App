@@ -1,8 +1,10 @@
 const express = require("express")
 const {
-    createGroup,
     getGroup,
-    getGroups
+    getGroups,
+    createGroup,
+    updateGroup,
+    deleteGroup
 } = require("../controllers/studentGroupsController")
 
 const router = express.Router()
@@ -13,12 +15,8 @@ router.get("/:id", getGroup)
 
 router.post("/", createGroup)
 
-router.delete("/:id", (req, res) => {
-    res.json({mssg: "delete a group"})
-})
+router.delete("/:id", deleteGroup)
 
-router.patch("/:id", (req, res) => {
-    res.json({mssg: "update a group"})
-})
+router.patch("/:id", updateGroup)
 
 module.exports = router

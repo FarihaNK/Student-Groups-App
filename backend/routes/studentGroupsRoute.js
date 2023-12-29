@@ -1,18 +1,17 @@
 const express = require("express")
+const {
+    createGroup,
+    getGroup,
+    getGroups
+} = require("../controllers/studentGroupsController")
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
-    res.json({mssg: "get all groups"})
-})
+router.get("/", getGroups)
 
-router.get("/:id", (req, res) => {
-    res.json({mssg: "get single group"})
-})
+router.get("/:id", getGroup)
 
-router.post("/", (req, res) => {
-    res.json({mssg: "post new group"})
-})
+router.post("/", createGroup)
 
 router.delete("/:id", (req, res) => {
     res.json({mssg: "delete a group"})

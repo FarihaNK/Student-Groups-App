@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // attach routes to app
-app.use(groupRoutes)
+app.use("/api/studentgroups", groupRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

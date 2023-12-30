@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [studentGroups, setStudentGroups] = useState(null)
+
+  useEffect(() => {
+    const fetchgroups = async () => {
+      const response = await fetch("/api/studentgroups")
+      const json = await response.json()
+
+      if (response.ok) {
+        setStudentGroups(json)
+      }
+    }
+
+    fetchgroups()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      hello
+      <div className='studentgroups'>
+        {studentGroups && studentGroups.map((studentGroups) => (
+          <p key={studentGroups._id}>{studentGroups.name}</p>
+        ))}
+      </div>
+      </BrowserRouter>
     </div>
   );
 }

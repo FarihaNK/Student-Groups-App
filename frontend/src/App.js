@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { useEffect, useState } from 'react';
+import Home from './pages/Home';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      hello
+      <Home/>
       <div className='studentgroups'>
         {studentGroups && studentGroups.map((studentGroups) => (
           <p key={studentGroups._id}>{studentGroups.name}</p>

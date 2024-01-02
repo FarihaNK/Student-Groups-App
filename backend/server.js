@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 require("dotenv").config()
 //routes
 const groupRoutes = require("./routes/studentGroupsRoute");
+const userRoutes = require("./routes/studentGroupsRoute");
+
 
 // Creates express app
 const app = express();
@@ -17,6 +19,8 @@ app.use((req, res, next) => {
 
 // attach routes to app
 app.use("/api/studentgroups", groupRoutes)
+app.use("/api/user", userRoutes)
+
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

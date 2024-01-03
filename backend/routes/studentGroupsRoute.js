@@ -7,7 +7,12 @@ const {
     deleteGroup
 } = require("../controllers/studentGroupsController")
 
+const requireAuth = require('../middleware/requireAuth')
+
 const router = express.Router()
+
+//require auth for all routes, testing...
+// router.use(requireAuth)
 
 router.get("/", getGroups)
 

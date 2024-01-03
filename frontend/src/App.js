@@ -1,10 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuthContext } from './hooks/useAuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 function App() {
+  const {user} = useAuthContext
   return (
     <div className="App">
       <BrowserRouter>

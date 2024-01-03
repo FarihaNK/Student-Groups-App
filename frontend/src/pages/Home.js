@@ -11,7 +11,7 @@ function Home() {
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{text}</p>
           <a href="#" className="btn btn-primary">
-            Go somewhere
+            Become a member
           </a>
         </div>
       </div>

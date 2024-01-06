@@ -17,7 +17,6 @@ const userSchema = new Schema({
 
 //static login method
 userSchema.statics.login = async function(email, password) {
-    console.log("TEST4")
     if (!email || !password) {
         throw Error("all feilds must be filled")
     }
@@ -28,7 +27,6 @@ userSchema.statics.login = async function(email, password) {
 
     const match = await bcrypt.compare(password, user.password)
     if (!match) {throw Error("Incorrect password")}
-    console.log("TEST5")
     return user
 }
 

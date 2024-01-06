@@ -3,9 +3,12 @@ const StudentGroup = require("../models/studentGroupsModel")
 
 //get all groups
 const getGroups = async (req, res) =>{
+    console.log("TEST30")
     const groups = await StudentGroup.find({})
+    console.log("TEST31")
 
     res.status(200).json(groups)
+    console.log("TEST32")
 }
 
 //get single group

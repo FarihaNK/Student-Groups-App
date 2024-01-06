@@ -9,7 +9,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        console.log(email, password)
+        await login(email, password)
     }
 
     return(
@@ -31,7 +31,7 @@ const Login = () => {
             />
 
             <button disabled={isLoading}>log in</button>
-            {error&& <div className="error">{error}</div>}
+            {error && <div className="error">tesing this{error}</div>}
         </form>
     )
 

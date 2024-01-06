@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config()
 //routes
 const groupRoutes = require("./routes/studentGroupsRoute");
-const userRoutes = require("./routes/studentGroupsRoute");
+const userRoutes = require("./routes/userRoute");
 
 
 // Creates express app

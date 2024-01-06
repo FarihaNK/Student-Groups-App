@@ -1,8 +1,12 @@
-import Navbar from "../components/Navbar";
 import { useEffect, useState } from 'react';
 
 
 function Home() {
+
+   // Retrieve state from local storage on mount
+   const initialState = JSON.parse(localStorage.getItem('studentGroups')) || null;
+   const [studentGroups, setStudentGroups] = useState(initialState);
+ 
     // Function to create a card for each student group
   const createCard = (title, text) => {
     return (
@@ -19,8 +23,6 @@ function Home() {
   };
 
   // Dictionary
-  const [studentGroups, setStudentGroups] = useState(null);
-
   useEffect(() => {
     const fetchGroups = async () => {
       const response = await fetch('/api/studentgroups');
@@ -28,9 +30,10 @@ function Home() {
 
       if (response.ok) {
         setStudentGroups(json);
+        // Store the state in local storage
+        localStorage.setItem('studentGroups', JSON.stringify(json));
       }
     };
-
     fetchGroups();
   }, []);
 
@@ -43,7 +46,6 @@ function Home() {
 
     return(
         <div className="home-container">
-            <Navbar/>
             <div className="studentgroups">{groupCards}</div>
         </div>
     )

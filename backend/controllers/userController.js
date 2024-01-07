@@ -37,4 +37,34 @@ const signupUser = async (req, res) => {
     }
 }
 
-module.exports = {signupUser, loginUser}
+//add user to student group
+const addStudentGroupToUser = async (req, res) => {
+    const userId = req.params.userId; // Assuming userId is passed as a parameter in the URL
+    const { studentGroupId, groupType } = req.body;
+  
+    try {
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+  
+      // Assuming 'groupType' is either 'execs' or 'general'
+      if (!user[groupType]) {
+        return res.status(400).json({ error: `Invalid groupType: ${groupType}` });
+      }
+  
+      // Add the studentGroupId to the specified array
+      user[groupType].push(studentGroupId);
+  
+      // Save the updated user document
+      await user.save();
+  
+      res.status(200).json({ message: "Student group added to user successfully" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
+  module.exports = { signupUser, loginUser, addStudentGroupToUser };

@@ -13,6 +13,14 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    execs: {
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentGroup" }],
+      default: [],
+    },
+    general: {
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: "StudentGroup" }],
+      default: [],
+    },
 })
 
 //static login method

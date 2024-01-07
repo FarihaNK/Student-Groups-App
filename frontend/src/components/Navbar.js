@@ -1,12 +1,8 @@
 import '../App.css';
-import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 function Navbar() {
-    const {logout} = useLogout()
     const {user} = useAuthContext()
-
-    const handleClick = () => {logout()}
 
     return(
     <div className="navbar-container">
@@ -31,12 +27,6 @@ function Navbar() {
                         </li>
                     </div>
                 )}
-                    {user && (
-                    <div>
-                        <span>{user.email}</span>
-                        <button class="btn btn-outline-success logout" onClick={handleClick}>Logout</button>
-                    </div>
-                    )}
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown

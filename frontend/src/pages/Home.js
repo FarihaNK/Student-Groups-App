@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-
 function Home() {
 
    // Retrieve state from local storage on mount

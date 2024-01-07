@@ -10,6 +10,5 @@ export const useLogout = () => {
       //dispatch logout action
       dispatch({ type: "LOGOUT" });
     };
-    console.log("TEST1")
     return { logout };
   };

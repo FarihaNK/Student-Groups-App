@@ -5,21 +5,16 @@ export const useLogin =() => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
     const {dispatch} = useAuthContext()
-    console.log("TEST3")
 
     const login = async (email, password) => {
         setIsLoading(true)
         setError(null)
-
-        console.log("TEST4")
 
         const response = await fetch("/api/user/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, password})
         })
-        console.log("TEST5")
-        console.log(response)
 
         const json = await response.json()
 
@@ -35,7 +30,6 @@ export const useLogin =() => {
             dispatch({type: "LOGIN", payload: json} )
             setIsLoading(false)
         }
-        console.log("TEST6")
     }
     return {login, isLoading, error}
 }

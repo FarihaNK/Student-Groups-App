@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./components/Navbar";
@@ -13,13 +13,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* {user ? <Sidebar /> : <Navbar />} */}
+      {user ? <Sidebar /> : <Navbar />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/apply" element={<Apply />} />
+          {/* <Route path="/apply" element={user ? <Apply />: <Navigate to="/login"/>} /> */}
+          <Route path="/apply/:studentGroupname" element={<Apply />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,22 +1,26 @@
 import { useState } from "react"
 import { useApply } from "../hooks/useApply"
+import { useParams } from 'react-router-dom';
 
-const Apply = (studentGroupname) => {
+const Apply = () => {
     const [what, setWhat] = useState("")
     const [why, setWhy] = useState("")
     const {apply, error, isLoading} = useApply()
 
-    const userId = "yourUserId";
+    const { studentGroupname } = useParams();
+
+    const user = JSON.parse(localStorage.getItem("user"))
+    const userId = user._id;
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await apply(userId, studentGroupname)
+        await apply(userId, decodeURIComponent(studentGroupname))
     }
 
     return(
         <form className="apply" onSubmit={handleSubmit}>
-            <h3>apply</h3>
+            <h3>apply for {decodeURIComponent(studentGroupname)}</h3>
             
             <label>what:</label>
             <input

@@ -11,7 +11,7 @@ export const useApply =() => {
         const response = await fetch("/api/user/${userId}/addStudentGroup", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({studentGroupname }),
+            body: JSON.stringify({studentGroupId: studentGroupname, groupType: "general"}),
         })
         const json = await response.json()
 

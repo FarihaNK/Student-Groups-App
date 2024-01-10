@@ -10,12 +10,16 @@ const Apply = () => {
     const { studentGroupname } = useParams();
 
     const user = JSON.parse(localStorage.getItem("user"))
-    const userId = user._id;
+    const userId = user.userid;
+
+    const groupArray = JSON.parse(localStorage.getItem("studentGroups"))
+    const foundGroup = groupArray.find(group => group.name === studentGroupname)
+    const groupId = foundGroup._id
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await apply(userId, decodeURIComponent(studentGroupname))
+        await apply(userId, groupId)
     }
 
     return(

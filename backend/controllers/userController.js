@@ -1,5 +1,6 @@
 const User = require("../models/userModel")
 const jwt = require("jsonwebtoken")
+const { Types } = require('mongoose');
 
 const createToken = (_id) => {
     return jwt.sign({_id}, process.env.SECRET, {expiresIn: "3d"})
@@ -14,8 +15,9 @@ const loginUser = async (req, res) => {
 
         //create a token
         const token = createToken(user._id)
+        const userid = user._id
 
-        res.status(200).json({email, token})
+        res.status(200).json({email, token, userid})
     }catch(error) {
         res.status(400).json({error: error.message})
     }
@@ -43,6 +45,11 @@ const addStudentGroupToUser = async (req, res) => {
     const { studentGroupId, groupType } = req.body;
   
     try {
+      const isValidObjectId = Types.ObjectId.isValid(userId);
+
+      if (!isValidObjectId) {
+        return res.status(400).json({ error: 'Invalid userId' });
+      }
       const user = await User.findById(userId);
   
       if (!user) {

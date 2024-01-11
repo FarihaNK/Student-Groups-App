@@ -14,7 +14,7 @@ const GenGroup = () => {
     return(
         <div>
             <div className="info">
-                <h1>this is {studentGroupname}</h1>
+                <h1>this is {studentGroupname} general</h1>
                 <h3>{foundGroup.description}</h3>
                 <h5>{foundGroup.email}</h5>
                 <h5>{foundGroup.instagram}</h5>

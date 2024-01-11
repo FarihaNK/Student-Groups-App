@@ -7,12 +7,15 @@ function Announcements() {
    const [announcements, setAnnouncements] = useState("");
  
     // Function to create a card for each student group
-  const createCard = (groupname, text) => {
+  const createCard = (groupname, text, createdate, updatedate) => {
     return (
       <div className="card" style={{ width: '18rem', margin: '10px' }}>
         <div className="card-body">
           <h5 className="card-title">{groupname}</h5>
           <p className="card-text">{text}</p>
+          <br/>
+          <p><em>posted at: {createdate}</em></p>
+          <p><em>last edited: {updatedate}</em></p>
         </div>
       </div>
     );
@@ -35,7 +38,7 @@ function Announcements() {
   const announcementsCards =
     announcements &&
     announcements.map((announcement) => {
-      return createCard(announcement.groupname, announcement.text);
+      return createCard(announcement.groupname, announcement.text, announcement.createdAt, announcement.updatedAt);
     });
 
     return(

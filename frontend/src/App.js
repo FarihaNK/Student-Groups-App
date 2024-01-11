@@ -11,13 +11,14 @@ import Recognition from './pages/Recognition';
 import GenGroup from './pages/GenGroup';
 import ExecGroup from './pages/ExecGroup';
 import Announcements from './pages/Announcements';
+import PostAnnouncement from './pages/PostAnnouncement';
 
 function App() {
   const { user } = useAuthContext();
 
   return (
     <div className="App">
-      {user ? <Sidebar /> : <Navbar />}
+      {/* {user ? <Sidebar /> : <Navbar />} */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -28,6 +29,7 @@ function App() {
           <Route path="/execgroup/:studentGroupname" element={<ExecGroup />} />
           <Route path="/recognition" element={<Recognition />} />
           <Route path="/announcements" element={<Announcements />} />
+          <Route path="/postannouncement/:studentGroupname" element={<PostAnnouncement />} />
         </Routes>
       </BrowserRouter>
     </div>

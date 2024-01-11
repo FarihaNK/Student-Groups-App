@@ -10,13 +10,14 @@ import Apply from './pages/Apply';
 import Recognition from './pages/Recognition';
 import GenGroup from './pages/GenGroup';
 import ExecGroup from './pages/ExecGroup';
+import Announcements from './pages/Announcements';
 
 function App() {
   const { user } = useAuthContext();
 
   return (
     <div className="App">
-      {/* {user ? <Sidebar /> : <Navbar />} */}
+      {user ? <Sidebar /> : <Navbar />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,6 +27,7 @@ function App() {
           <Route path="/gengroup/:studentGroupname" element={<GenGroup />} />
           <Route path="/execgroup/:studentGroupname" element={<ExecGroup />} />
           <Route path="/recognition" element={<Recognition />} />
+          <Route path="/announcements" element={<Announcements />} />
         </Routes>
       </BrowserRouter>
     </div>

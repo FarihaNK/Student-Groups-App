@@ -67,6 +67,7 @@ const Sidebar = () => {
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="/recognition" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Gain Club Recognition</a></li>
+            <li><a href="/announcements" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Announcements</a></li>
             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Other</a></li>
           </ul>
         </div>

@@ -33,7 +33,7 @@ function Navbar() {
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/recognition">Gain Club Recognition</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="/announcements">Announcements</a></li>
                     <li><hr class="dropdown-divider"/></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>

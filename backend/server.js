@@ -4,7 +4,7 @@ require("dotenv").config()
 //routes
 const groupRoutes = require("./routes/studentGroupsRoute");
 const userRoutes = require("./routes/userRoute");
-
+const announcementRoutes = require("./routes/announcementRoute");
 
 // Creates express app
 const app = express();
@@ -20,6 +20,7 @@ app.use((req, res, next) => {
 // attach routes to app
 app.use("/api/studentgroups", groupRoutes)
 app.use("/api/user", userRoutes)
+app.use("/api/announcements", announcementRoutes)
 
 
 // connect to db

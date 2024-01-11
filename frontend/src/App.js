@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Sidebar from './components/Sidebar';
 import Apply from './pages/Apply';
+import Recognition from './pages/Recognition';
 
 function App() {
   const { user } = useAuthContext();
@@ -19,8 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          {/* <Route path="/apply" element={user ? <Apply />: <Navigate to="/login"/>} /> */}
-          <Route path="/apply/:studentGroupname" element={<Apply />} />
+          <Route path="/apply/:studentGroupname" element={user ? <Apply />: <Navigate to="/login"/>} />
+          <Route path="/recognition" element={<Recognition />} />
         </Routes>
       </BrowserRouter>
     </div>

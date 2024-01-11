@@ -20,11 +20,6 @@ export const useApply =() => {
             setError(json.error)
         }
         if (response.ok) {
-            // //save user to local storage
-            // localStorage.setItem("user", JSON.stringify(json))
-
-            // //update authcontect
-            // dispatch({type: "LOGIN", payload: json} )
             setIsLoading(false)
         }
     }

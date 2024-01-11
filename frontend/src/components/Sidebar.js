@@ -7,37 +7,56 @@ const Sidebar = () => {
     const {user} = useAuthContext()
 
     const handleClick = () => {logout()}
+    const generalGroups = JSON.parse(localStorage.getItem("user")).general || [];
+    const execGroups = JSON.parse(localStorage.getItem("user")).execs || [];
 
     return(
         <div className="flex-shrink-0 p-3 sidebar" style={{ width: '280px' }}>
       <a href="/" className="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
         <svg className="bi pe-none me-2" width="30" height="24"></svg>
-        <span className="fs-5 fw-semibold">Sidebar</span>
+        <span className="fs-5 fw-semibold">Home</span>
       </a>
     <ul class="list-unstyled ps-0">
       <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Home
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Executive
         </button>
-        <div class="collapse show" id="home-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-          </ul>
+        <div class="collapse" id="dashboard-collapse">
+        <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              {execGroups.map((groupId) => {
+                // Find the corresponding student group in studentGroups array
+                const studentGroup = JSON.parse(localStorage.getItem("studentGroups")).find(group => group._id === groupId);
+
+                return (
+                  <li key={groupId}>
+                    <a href="#" className="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                      {studentGroup ? studentGroup.name : 'Unknown Student Group'}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
         </div>
       </li>
       <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          General
         </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-          </ul>
+        <div class="collapse show" id="home-collapse">
+        <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              {generalGroups.map((groupId) => {
+                // Find the corresponding student group in studentGroups array
+                const studentGroup = JSON.parse(localStorage.getItem("studentGroups")).find(group => group._id === groupId);
+
+                return (
+                  <li key={groupId}>
+                    <a href="#" className="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                      {studentGroup ? studentGroup.name : 'Unknown Student Group'}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
         </div>
       </li>
       <li class="mb-1">

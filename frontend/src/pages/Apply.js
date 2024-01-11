@@ -7,7 +7,7 @@ const Apply = () => {
     const [why, setWhy] = useState("")
     const {apply, error, isLoading} = useApply()
 
-    const { studentGroupname } = useParams();
+    const { studentGroupname, type } = useParams();
 
     const user = JSON.parse(localStorage.getItem("user"))
     const userId = user.userid;
@@ -19,12 +19,12 @@ const Apply = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await apply(userId, groupId)
+        await apply(userId, groupId, type)
     }
 
     return(
         <form className="apply" onSubmit={handleSubmit}>
-            <h3>apply for {decodeURIComponent(studentGroupname)}</h3>
+            <h3>apply for {decodeURIComponent(studentGroupname)} {type}</h3>
             
             <label>what:</label>
             <input

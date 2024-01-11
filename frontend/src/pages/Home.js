@@ -14,7 +14,7 @@ function Home() {
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{text}</p>
-          <Link to={`/apply/${encodeURIComponent(title)}`} className="btn btn-primary">
+          <Link to={`/apply/${encodeURIComponent(title)}/general`} className="btn btn-primary">
           Become a member
         </Link>
         </div>

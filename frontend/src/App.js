@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Sidebar from './components/Sidebar';
 import Apply from './pages/Apply';
 import Recognition from './pages/Recognition';
+import genGroup from './pages/genGroup';
 
 function App() {
   const { user } = useAuthContext();
@@ -20,7 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/apply/:studentGroupname" element={user ? <Apply />: <Navigate to="/login"/>} />
+          <Route path="/apply/:studentGroupname/:type" element={user ? <Apply />: <Navigate to="/login"/>} />
+          <Route path="/group/:studentGroupname" element={<genGroup />} />
           <Route path="/recognition" element={<Recognition />} />
         </Routes>
       </BrowserRouter>

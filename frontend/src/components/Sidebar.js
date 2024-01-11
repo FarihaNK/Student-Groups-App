@@ -51,7 +51,7 @@ const Sidebar = () => {
 
                 return (
                   <li key={groupId}>
-                    <a href="#" className="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                    <a href={`/group/${encodeURIComponent(studentGroup.name)}`} className="link-body-emphasis d-inline-flex text-decoration-none rounded">
                       {studentGroup ? studentGroup.name : 'Unknown Student Group'}
                     </a>
                   </li>
@@ -67,9 +67,7 @@ const Sidebar = () => {
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="/recognition" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Gain Club Recognition</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Other</a></li>
           </ul>
         </div>
       </li>
@@ -80,9 +78,7 @@ const Sidebar = () => {
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Other</a></li>
             <li><a onClick={handleClick} class="link-body-emphasis d-inline-flex text-decoration-none rounded">Log out</a></li>
             <li><a>{user.email}</a></li>
           </ul>

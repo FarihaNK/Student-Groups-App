@@ -7,7 +7,6 @@ const Recognition = () => {
     const [description, setDescription] = useState("")
     const [insta, setInsta] = useState("")
     const [programs, setPrograms] = useState("")
-
     const {recognition, error, isLoading} = useRecognition()
 
 

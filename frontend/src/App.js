@@ -9,20 +9,22 @@ import Sidebar from './components/Sidebar';
 import Apply from './pages/Apply';
 import Recognition from './pages/Recognition';
 import GenGroup from './pages/GenGroup';
+import ExecGroup from './pages/ExecGroup';
 
 function App() {
   const { user } = useAuthContext();
 
   return (
     <div className="App">
-      {user ? <Sidebar /> : <Navbar />}
+      {/* {user ? <Sidebar /> : <Navbar />} */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/apply/:studentGroupname/:type" element={user ? <Apply />: <Navigate to="/login"/>} />
-          <Route path="/group/:studentGroupname" element={<GenGroup />} />
+          <Route path="/gengroup/:studentGroupname" element={<GenGroup />} />
+          <Route path="/execgroup/:studentGroupname" element={<ExecGroup />} />
           <Route path="/recognition" element={<Recognition />} />
         </Routes>
       </BrowserRouter>

@@ -30,7 +30,7 @@ const Sidebar = () => {
 
                 return (
                   <li key={groupId}>
-                    <a href="#" className="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                    <a href={`/execgroup/${encodeURIComponent(studentGroup.name)}`} className="link-body-emphasis d-inline-flex text-decoration-none rounded">
                       {studentGroup ? studentGroup.name : 'Unknown Student Group'}
                     </a>
                   </li>
@@ -51,7 +51,7 @@ const Sidebar = () => {
 
                 return (
                   <li key={groupId}>
-                    <a href={`/group/${encodeURIComponent(studentGroup.name)}`} className="link-body-emphasis d-inline-flex text-decoration-none rounded">
+                    <a href={`/gengroup/${encodeURIComponent(studentGroup.name)}`} className="link-body-emphasis d-inline-flex text-decoration-none rounded">
                       {studentGroup ? studentGroup.name : 'Unknown Student Group'}
                     </a>
                   </li>

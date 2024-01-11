@@ -1,7 +1,7 @@
 const express = require("express")
 
 //controller functions
-const {signupUser, loginUser, addStudentGroupToUser} = require("../controllers/userController")
+const {signupUser, loginUser, addStudentGroupToUser, removeStudentGroupFromUser} = require("../controllers/userController")
 
 const router = express.Router()
 
@@ -14,5 +14,7 @@ router.post("/signup", signupUser)
 // Add student group to user route
 router.post("/:userId/addStudentGroup", addStudentGroupToUser);
 
+// remove student group to user route
+router.post("/:userId/removeStudentGroup", removeStudentGroupFromUser);
 
 module.exports = router

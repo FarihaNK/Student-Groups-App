@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-const genGroup = () => {
+const GenGroup = () => {
 
     const { studentGroupname } = useParams();
 
@@ -36,4 +36,4 @@ const genGroup = () => {
 
 }
 
-export default genGroup
+export default GenGroup

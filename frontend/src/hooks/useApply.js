@@ -20,6 +20,14 @@ export const useApply =() => {
             setError(json.error)
         }
         if (response.ok) {
+            if (type === "execs"){
+                const response = await fetch(`/api/user/${userId}/removeStudentGroup`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({studentGroupId: studentGroupname, groupType: "general"}),
+                })
+                const json = await response.json()
+            }
             setIsLoading(false)
         }
     }

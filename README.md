@@ -1,4 +1,4 @@
-# Student Groups Web Application
+# Student Groups Web Application (in progress)
 
 Welcome to the Student Groups Web Application, a full-stack web application using the MERN stack. This all-in-one platform empowers students to manage groups, explore organizations, and apply for student groups. It includes features for managing club memberships, gaining club recognition, preparing financial statements for audits, and posting club announcements. The application utilizes MongoDB for a real-time database, JWT for user authentication, and the MERN stack for a seamless and dynamic user experience.
 

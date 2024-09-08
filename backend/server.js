@@ -22,8 +22,6 @@ app.use("/api/studentgroups", groupRoutes)
 app.use("/api/user", userRoutes)
 app.use("/api/announcements", announcementRoutes)
 
-console.log('MongoDB URI:', process.env.MONGO_URI);
-
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {

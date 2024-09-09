@@ -12,6 +12,7 @@ import GenGroup from './pages/genGroup';
 import ExecGroup from './pages/ExecGroup';
 import Announcements from './pages/Announcements';
 import PostAnnouncement from './pages/PostAnnouncement';
+import './App.css';
 
 function App() {
   const { user } = useAuthContext();

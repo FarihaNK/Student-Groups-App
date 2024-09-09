@@ -1,64 +1,111 @@
+/* Global Styles */
+body {
+  background-color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* App Container */
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}/* Navbar.js */
-.login-signup-nav{
-  display: flex;
+.navbar-container {
+  background-color: #001f3f;
 }
 
-/* Sidebar.js */
-body {
-  display: flex;
+/* Buttons */
+.btn-primary {
+  background-color: #001f3f;
+  border: none;
 }
 
+.btn-primary:hover {
+  background-color: #00509d;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #001f3f;
+}
+
+.navbar-brand, .nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: #f8f9fa !important;
+}
+
+/* Sidebar Styles */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  background-color: #001f3f;
+  color: white;
+  padding: 20px;
   height: 100%;
-  background-color: #fff; /* Adjust as needed */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-  z-index: 1000; /* Ensure the sidebar is above other content */
+}
+
+.sidebar a {
+  color: #ffffff;
+}
+
+.sidebar a:hover {
+  color: #adb5bd;
 }
 
 .main-content {
-  flex: 1;
-  margin-left: 280px; /* Width of the sidebar */
-  padding: 20px; /* Adjust as needed */
-  overflow-x: auto;
+  background-color: #ffffff;
+  padding: 20px;
+  margin-left: 280px; /* Sidebar width */
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Form Styling */
+form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+form h3 {
+  color: #001f3f;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #001f3f;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #001f3f;
   color: white;
+  border: none;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+button:disabled {
+  background-color: #6c757d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Card Styling */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #001f3f;
 }

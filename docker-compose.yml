@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    image: gcr.io/aerial-gadget-435103-n6/backend-image
+    container_name: backend
+    ports:
+      - "4000:4000"  # Expose port 4000 for the backend
+    environment:
+      - NODE_ENV=production
+    
+  frontend:
+    image: gcr.io/aerial-gadget-435103-n6/frontend-image
+    container_name: frontend
+    ports:
+      - "3000:3000"  # Expose port 3000 for the frontend
+    environment:
+      - REACT_APP_API_URL=http://backend:4000  # Point frontend to backend service
+    depends_on:
+      - backend  # Ensure backend starts before frontend

@@ -25,7 +25,8 @@ function Home() {
   // Dictionary
   useEffect(() => {
     const fetchGroups = async () => {
-      const response = await fetch('/api/studentgroups');
+
+      const response = await fetch(`/api/studentgroups`);
       const json = await response.json();
 
       if (response.ok) {

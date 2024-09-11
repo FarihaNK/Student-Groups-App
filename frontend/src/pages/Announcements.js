@@ -24,7 +24,10 @@ function Announcements() {
   // Dictionary
   useEffect(() => {
     const fetchAnnouncements = async () => {
-      const response = await fetch('/api/announcements');
+
+      const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:4000"; // Default to localhost in non-Docker environment
+
+      const response = await fetch(`${apiBaseUrl}/api/announcements`);
       const json = await response.json();
 
       if (response.ok) {
@@ -37,8 +40,12 @@ function Announcements() {
   // Map the student groups to create cards
   const announcementsCards =
     announcements &&
-    announcements.map((announcement) => {
-      return createCard(announcement.groupname, announcement.text, announcement.createdAt, announcement.updatedAt);
+    announcements.map((announcement, index) => {
+      return (
+        <div key={announcement._id || index}>
+        {createCard(announcement.groupname, announcement.text, announcement.createdAt, announcement.updatedAt)}
+      </div>
+      );
     });
 
     return(

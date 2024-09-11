@@ -10,7 +10,9 @@ export const useSignup =() => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch("/api/user/signup", {
+        const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:4000"; // Default to localhost in non-Docker environment
+
+        const response = await fetch(`${apiBaseUrl}/api/user/signup`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({email, password})

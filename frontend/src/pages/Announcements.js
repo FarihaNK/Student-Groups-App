@@ -25,7 +25,9 @@ function Announcements() {
   useEffect(() => {
     const fetchAnnouncements = async () => {
 
-      const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:4000"; // Default to localhost in non-Docker environment
+      console.log("THIS IS THE ENV VAR: ", process.env.REACT_APP_API_URL)
+      const apiBaseUrl = process.env.REACT_APP_API_URL || "http://35.192.53.79"; // Default to localhost in non-Docker environment
+      console.log("THIS IS PIBASEURL: ", apiBaseUrl)
 
       const response = await fetch(`${apiBaseUrl}/api/announcements`);
       const json = await response.json();

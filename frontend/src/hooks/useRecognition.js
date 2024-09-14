@@ -15,7 +15,7 @@ export const useRecognition =() => {
             programs: [programs],
         }
         
-        const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:4000"; // Default to localhost in non-Docker environment
+        const apiBaseUrl = process.env.REACT_APP_API_URL || "http://35.192.53.79"; // Default to localhost in non-Docker environment
 
         const response = await fetch(`${apiBaseUrl}/api/studentgroups`, {
             method: "POST",

@@ -4,7 +4,7 @@ export const useApply =() => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
     
-    const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:4000"; // Default to localhost in non-Docker environment
+    const apiBaseUrl = process.env.REACT_APP_API_URL || "http://35.192.53.79"; // Default to localhost in non-Docker environment
 
     const apply = async (userId, studentGroupname, type) => {
         setIsLoading(true)

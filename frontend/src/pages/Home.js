@@ -25,8 +25,10 @@ function Home() {
   // Dictionary
   useEffect(() => {
     const fetchGroups = async () => {
+      
+      const apiBaseUrl = process.env.REACT_APP_API_URL || "http://35.192.53.79"; // Default to localhost in non-Docker environment
 
-      const response = await fetch(`/api/studentgroups`);
+      const response = await fetch(`${apiBaseUrl}/api/studentgroups`);
       const json = await response.json();
 
       if (response.ok) {
